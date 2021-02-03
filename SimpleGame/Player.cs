@@ -7,11 +7,15 @@ namespace SimpleGame
 {
     class Player:Obj
     {
+
+        
         public int vel = new int();
-        public int point = 10;
+        public int point = 5;
         public Player(int width, int height, int x, int y, float r, float g, float b) : base(width, height, x, y, r, g, b)
         {
             this.vel = 5;
+
+            
         }
 
         public void Update()
@@ -43,8 +47,14 @@ namespace SimpleGame
 
         public void grow()
         {
-            width += 10;
-            height += 10;
+            width += point;
+            height += point;
+        }
+
+        public void decrease()
+        {
+            width -= point;
+            height -= point;
         }
     }
 }

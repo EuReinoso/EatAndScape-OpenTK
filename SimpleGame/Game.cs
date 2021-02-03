@@ -1,18 +1,22 @@
 ﻿using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using OpenTK.Graphics;
 
 namespace SimpleGame
 {
     class Game
     {
         GameWindow window;
-        public Player player = new Player(15, 15, 0, 0, 255, 255, 255);
+
+        Player player = new Player(15, 15, 30, 45, 255, 255, 255);
+        public Enemy enemy = new Enemy(60, 60, 0,0,255,0,0);
         public Fruit fruit = new Fruit(15, 15, -4, 10, 0, 255, 0);
         public int vezes = 1;
         public Game(GameWindow window)
         {
             this.window = window;
+            
             Start();
         }
 
@@ -29,6 +33,7 @@ namespace SimpleGame
         private void Window_UpdateFrame(object sender, FrameEventArgs e)
         {
             playerGrow();
+            playerDecrease();
             
         }
 
@@ -44,6 +49,7 @@ namespace SimpleGame
 
             fruit.Update(window);
             player.Update();
+            enemy.Update(window);
 
             window.SwapBuffers();
         }
@@ -131,6 +137,14 @@ namespace SimpleGame
             {
                 player.grow();
                 fruit.randPos(window);
+            }
+        }
+
+        void playerDecrease()
+        {
+            if (collision(player, enemy))
+            {
+                player.decrease();
             }
         }
     }

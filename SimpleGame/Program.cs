@@ -7,7 +7,7 @@ namespace SimpleGame
     {
         static void Main(string[] args)
         {
-            GameWindow window = new GameWindow(500, 300);
+            GameWindow window = new GameWindow(600, 500);
             Game game = new Game(window);
         }
     }

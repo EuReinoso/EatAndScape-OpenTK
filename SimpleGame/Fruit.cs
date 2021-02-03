@@ -23,12 +23,12 @@ namespace SimpleGame
         }
 
         void WallCollision(GameWindow window)
-        { 
-            if (pos.x >= window.Width/2 || pos.x <= -window.Width/2)
+        {
+            if (pos.x >= window.Width / 2 - width / 2 || pos.x <= -window.Width / 2 + width / 2)
             {
                 velx = -velx;
             }
-            if (pos.y >= window.Height/2 || pos.y <= -window.Height/2)
+            if (pos.y >= window.Height / 2 - height / 2 || pos.y <= -window.Height / 2 + height / 2)
             {
                 vely = -vely;
             }
